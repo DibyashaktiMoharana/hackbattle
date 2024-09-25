@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { DarkThemeAiChatbot } from '@/components/dark-theme-ai-chatbot'
 
 export default function OnboardingPage() {
     const devUrl = process.env.NEXT_PUBLIC_DEV_URL;
@@ -143,6 +144,7 @@ export default function OnboardingPage() {
           </Button>
         </form>
       </div>
+      <DarkThemeAiChatbot />
       <footer className="text-center py-4 text-gray-500 text-sm mt-5">
         <p>Created by git_rekt</p>
       </footer>

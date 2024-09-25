@@ -67,7 +67,7 @@ export default function SignIn() {
       email: decodedUser.email,
       imageUrl: decodedUser.picture,
     });
-
+    console.log(decodedUser);
     router.replace('/onboarding')
   }
 
