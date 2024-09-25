@@ -28,7 +28,7 @@ export function DarkThemeAiChatbot() {
   },[setUser]);
 
   const [messages, setMessages] = useState([
-    { role: 'model', content: `Hello ${user?.name}! I'm EcoSaathi AI assistant. How can I help you today?` }
+    { role: 'model', content: `Hello ${user?.name}! I'm your Eco-Friendly companion. How can I help you today?` }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
