@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion'
 import Image from 'next/image';
 import { Truck, Trash2, Map, BarChart2, ArrowRight, Icon, FunctionSquareIcon } from 'lucide-react'
-import { Bell, Calendar, ChevronDown, LogOut, Mail, Menu, Settings } from 'lucide-react';
+// import { Bell, Calendar, ChevronDown, LogOut, Mail, Menu, Settings } from 'lucide-react';
 import BentoGrid from '@/components/ui/bento-grid'
 import { Router } from 'next/router';
 import { useRouter } from 'next/navigation'
@@ -82,9 +82,6 @@ export default function LandingPage() {
           <h1 className="text-xl font-semibold">Track n&apos; <span className='text-green-400'>Trash</span></h1>
         </div>
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon">
-            <Bell className="h-6 w-6" />
-          </Button>
           <button className="bg-[#75fba6] text-black px-6 py-3 rounded-full font-bold hover:bg-[#fade77] transition-colors duration-300" onClick={handleclick}>
               Get Started
             </button>

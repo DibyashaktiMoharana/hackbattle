@@ -63,7 +63,7 @@ export default function OnboardingPage() {
       const result = await response.json();
       console.log('User created successfully:', result);
       // You can redirect or show a success message here
-      router.push('/success'); // Example redirection
+      router.push('/dashboard'); // Example redirection
   } catch (error) {
       console.error('Error creating user:', error);
       // Optionally show an error message to the user
