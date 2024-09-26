@@ -107,10 +107,10 @@ export default function SignIn() {
         <div className="text-center">
           <div className="flex items-center justify-center mb-6">
             <Leaf className="h-12 w-12 text-[#00ff9d] mr-2" />
-            <h1 className="text-5xl font-bold text-[#00ff9d]">EcoIndia</h1>
+            <h1 className="text-5xl font-bold text-[#00ff9d]">Trash n&apos; Trash</h1>
           </div>
           <p className="text-xl mb-8 max-w-md mx-auto text-gray-300">
-            Empowering India's Sustainability. Join us in creating a sustainable future.
+            Empowering India&apos;s Sustainability. Join us in creating a sustainable future.
           </p>
         </div>
 
