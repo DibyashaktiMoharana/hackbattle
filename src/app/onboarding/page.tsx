@@ -49,25 +49,30 @@ export default function OnboardingPage() {
     // console.log(jsonData)
     try {
       const response = await fetch(`${devUrl}/users/createuser`, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(jsonData),
-      });
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jsonData)
+      })
 
-      if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
+      if (response.ok) {
+        console.log(jsonData)
+        console.log('User onboarded successfully')
+        if (jsonData.usertype === 'Trucker'){
+          router.replace('/dashboard/trucker')
+        }
+        else if (jsonData.usertype == 'Admin'){
+          router.replace('/dashboard')
+        }
+        else if (jsonData.usertype == 'User'){
+          router.replace('/dashboard/user')
+        }
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to onboard user:', errorData)
       }
-
-      const result = await response.json();
-      console.log('User created successfully:', result);
-      // You can redirect or show a success message here
-      router.push('/dashboard'); // Example redirection
-  } catch (error) {
-      console.error('Error creating user:', error);
-      // Optionally show an error message to the user
-  }
+    } catch (error) {
+      console.error('Error during onboarding:', error)
+    }
   }
 
   if (!isMounted) {
@@ -75,8 +80,10 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black flex items-center flex-col justify-center">
-      <div className="w-full max-w-md p-8 space-y-8 bg-black  rounded-lg shadow-xl border border-gray-400">
+    <div className="min-h-screen flex items-center flex-col justify-center">
+      <div className="absolute inset-0 bg-[url('/images/bgonboarding.jpg')] bg-cover"></div>
+      <div className="absolute inset-0 bg-black opacity-75"></div>
+      <div className="relative w-full max-w-md p-8 space-y-8 bg-black  rounded-lg shadow-xl border border-gray-400">
         <h1 className="text-3xl font-bold text-center text-white">Complete Your Profile</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -152,7 +159,7 @@ export default function OnboardingPage() {
             >
               {/* <option value="">Select Type</option> */}
               <option value="Admin">Admin</option>
-              <option value="Client">Client</option>
+              <option value="User">User</option>
               <option value="Trucker">Trucker</option>
             </select>
           </div>
@@ -167,7 +174,7 @@ export default function OnboardingPage() {
       </div>
       <DarkThemeAiChatbot />
       <footer className="text-center py-4 text-gray-500 text-sm mt-5">
-        <p>Created by git_rekt</p>
+        <p>Made with ❤️ by git_rekt</p>
       </footer>
     </div>
   )

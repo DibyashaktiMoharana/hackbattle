@@ -82,6 +82,10 @@ export default function SignIn() {
           console.log("User is an Admin");
           router.replace("/dashboard");
         }
+        else if (data.user.usertype === "User"){
+          console.log("User is a User");
+          router.replace("/dashboard/user");
+        }
         else {
           console.log("User exists but type not matched");
           router.replace("/dashboard");
