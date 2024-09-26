@@ -97,7 +97,7 @@ export default function Dashboard() {
     setIsActionEnabled((prev) => !prev);
       console.log(user.email);
     try {
-      const response = await fetch(`https://eco-india-backend-alpha.vercel.app/bins/create-bin`, {
+      const response = await fetch(`${devUrl}/bins/create-bin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ export default function Dashboard() {
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Menu className="h-6 w-6" />
           </Button>
-          <h1 className="text-xl font-semibold">DASHBOARD</h1>
+          <h1 className="text-xl font-semibold">Track n&apos; Trash</h1>
         </div>
         <div className="flex items-center space-x-4">
           <Button variant="ghost" size="icon">
@@ -201,7 +201,7 @@ export default function Dashboard() {
             <Card className="bg-black border border-white/10 shadow-lg flex flex-col justify-center align-middle">
           <CardContent className="p-6">
             <h2 className="text-5xl font-bold mb-2">Hello, {user.name}</h2>
-            <h2 className="text-3xl font-bold mb-4 text-gray-400">Let&apos;s roll</h2>
+            <h2 className="text-3xl font-bold mb-4 text-gray-400">Got some trash for us?</h2>
             <p className="text-sm text-gray-400 mb-6">Waste Less, Live More: Together, We Can Make a Difference!</p>
             <div className="bg-emerald-950 p-8 rounded-3xl">
               <Button
@@ -245,12 +245,12 @@ export default function Dashboard() {
               <div className="flex flex-col justify-center align-middle">
                 <div className="flex-1 flex flex-col items-center pb-4">
                   <DonutChart value={66} color="#22c55e" label="66%" />
-                  <span className="text-sm font-medium mt-2">Visitors</span>
+                  <span className="text-sm font-medium mt-2">Eco-points</span>
                   <p className="text-xl font-bold">1,125</p>
                 </div>
                 <div className="flex-1 flex flex-col items-center">
                   <DonutChart value={33} color="#22c55e" label="33%" />
-                  <span className="text-sm font-medium mt-2">Views</span>
+                  <span className="text-sm font-medium mt-2">Active hours</span>
                   <p className="text-xl font-bold">200</p>
                 </div>
               </div>

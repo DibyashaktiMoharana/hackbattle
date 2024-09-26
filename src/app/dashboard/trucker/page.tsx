@@ -123,7 +123,7 @@ export default function Dashboard() {
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Menu className="h-6 w-6" />
           </Button>
-          <h1 className="text-xl font-semibold">DASHBOARD</h1>
+          <h1 className="text-xl font-semibold">Track n&apos; Trash</h1>
         </div>
         <div className="flex items-center space-x-4">
           <Button variant="ghost" size="icon">

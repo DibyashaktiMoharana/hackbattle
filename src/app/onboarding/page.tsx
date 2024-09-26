@@ -46,7 +46,28 @@ export default function OnboardingPage() {
       usertype: formData.usertype
     }
 
-    console.log(jsonData)
+    // console.log(jsonData)
+    try {
+      const response = await fetch(`${devUrl}/users/createuser`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(jsonData),
+      });
+
+      if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('User created successfully:', result);
+      // You can redirect or show a success message here
+      router.push('/success'); // Example redirection
+  } catch (error) {
+      console.error('Error creating user:', error);
+      // Optionally show an error message to the user
+  }
   }
 
   if (!isMounted) {

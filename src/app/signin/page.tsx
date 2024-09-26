@@ -67,8 +67,31 @@ export default function SignIn() {
       email: decodedUser.email,
       imageUrl: decodedUser.picture,
     });
-    console.log(decodedUser);
-    router.replace('/onboarding')
+
+    try {
+      const res = await fetch(`${devUrl}/users/checkuser/${decodedUser.email}`, {
+        method: 'GET',
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.user.usertype === "Trucker"){
+          console.log("User is a Tucker");
+          router.replace("/dashboard/trucker");
+        }
+        else if (data.user.usertype === "Admin"){
+          console.log("User is an Admin");
+          router.replace("/dashboard");
+        }
+        else {
+          console.log("User exists but type not matched");
+          router.replace("/dashboard");
+        }
+      } else {
+        router.replace("/onboarding");
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
   }
 
   return (
@@ -97,7 +120,7 @@ export default function SignIn() {
       </main>
 
       <footer className="text-center py-4 text-gray-500 text-sm z-10 relative">
-        <p>Created by git_rekt</p>
+        <p>Made by ❤️ by Git_Rekt</p>
       </footer>
     </div>
   );
