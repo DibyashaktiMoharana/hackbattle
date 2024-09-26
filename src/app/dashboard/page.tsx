@@ -11,7 +11,22 @@ import { Bell, Calendar, ChevronDown, LogOut, Mail, Menu, Settings } from 'lucid
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
+import Image from 'next/image';
 
+
+const LogoContainer = () => {
+  return (
+    <div className="h-5 w-6 ml-2 relative flex items-center justify-center">
+      {/* Logo image */}
+      <Image
+        src="/images/logo.png" // Replace with the actual path to your logo
+        alt="Logo"// This will make the image fill the container
+        height={25}
+        width={25}// Ensures the image maintains its aspect ratio
+      />
+    </div>
+  );
+};
 
 
 const DonutChart = ({ value, color, size = 80 }) => {
@@ -124,9 +139,7 @@ export default function Dashboard() {
       {/* Navigation Bar */}
       <nav className="flex items-center justify-between p-4 bg-black border-b border-white/10">
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <Menu className="h-6 w-6" />
-          </Button>
+        <LogoContainer/>
           <h1 className="text-xl font-semibold">Track n&apos; Trash</h1>
         </div>
         <div className="flex items-center space-x-4">
