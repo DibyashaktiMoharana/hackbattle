@@ -11,7 +11,22 @@ import { Bell, Calendar, ChevronDown, LogOut, Mail, Menu, Settings } from 'lucid
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
+import Image from 'next/image';
+import EventCarousel from "./ui/event-carousel";
 
+const LogoContainer = () => {
+  return (
+    <div className="h-5 w-6 ml-2 relative flex items-center justify-center">
+      {/* Logo image */}
+      <Image
+        src="/images/logo.png" // Replace with the actual path to your logo
+        alt="Logo"// This will make the image fill the container
+        height={25}
+        width={25}// Ensures the image maintains its aspect ratio
+      />
+    </div>
+  );
+};
 
 
 const DonutChart = ({ value, color, size = 80 }) => {
@@ -124,9 +139,7 @@ export default function Dashboard() {
       {/* Navigation Bar */}
       <nav className="flex items-center justify-between p-4 bg-black border-b border-white/10">
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <Menu className="h-6 w-6" />
-          </Button>
+        <LogoContainer/>
           <h1 className="text-xl font-semibold">Track n&apos; Trash</h1>
         </div>
         <div className="flex items-center space-x-4">
@@ -143,7 +156,7 @@ export default function Dashboard() {
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </HoverCardTrigger>
-            <HoverCardContent className="w-80 bg-[#2c2d2e] border-none shadow-lg mr-5">
+            <HoverCardContent className="w-80 bg-[#19191a] border-none shadow-lg mr-5">
               <div className="flex justify-between items-start">
                 <div className="space-y-1">
                   <h4 className="text-sm font-semibold text-[#00ff9d]">{user?.name}</h4>
@@ -224,22 +237,7 @@ export default function Dashboard() {
         <main className="p-6 flex gap-y-0 gap-x-6">
         {/*Log Table*/}
         <LitterLogsTable />
-        <Card className="bg-yellow-400 border-none shadow-lg flex flex-col">
-            <CardContent className="p-6 h-5/6">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h3 className="text-lg font-semibold text-black p-4">Upcoming Event</h3>
-                  <p className="text-sm text-gray-700 font-semibold px-4">Clean VIT (24/05/24)</p>
-                </div>
-                <img src="https://static.vecteezy.com/system/resources/previews/024/467/586/original/cartoon-tree-isolated-on-a-white-background-simple-modern-style-cute-green-plants-forest-flat-illustration-summer-spring-trees-vector.jpg" alt="Event" className="w-16 h-16 rounded-full" />
-              </div>
-              </CardContent>
-              <CardContent className="justify-end">
-              <Button variant="outline" className="w-full border-black text-white hover:bg-black hover:text-yellow-400 ">
-                Join Event
-              </Button>
-            </CardContent>
-          </Card>
+        <EventCarousel />
           <Card className="bg-black border border-white/10 shadow-lg w-2/12">
             <CardContent className="p-4">
               <div className="flex flex-col justify-center align-middle">
@@ -261,4 +259,3 @@ export default function Dashboard() {
     </div>
   )
 }
-// Add any additional components or logic here if needed
