@@ -39,7 +39,7 @@ const FeatureCard = ({ icon, title, description }) => (
   );
   
   const FeaturesSection = () => (
-    <section className="py-16 bg-black">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-7xl font-bold mb-8 text-left text-[#fade77]">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -131,35 +131,44 @@ export default function LandingPage() {
 
 
 
-      const HeroSection = () => (
-        <section className="min-h-screen flex items-center justify-center bg-black text-white">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-7xl font-bold mb-4"><span className='text-[#75fba6]'>Bin</span> it right,<br/>
-              </h1><h1 className='text-5xl font-bold mb-4'>
-              Trash out of sight!</h1>
-              {/* <p className="text-xl mb-6">Revolutionizing waste management with smart tracking and analytics.</p> */}
-              <p className="text-xl mb-6">Privatize the pickup of your waste</p>
-              <button className="bg-[#75fba6] text-black px-6 py-3 rounded-full font-bold hover:bg-[#fade77] transition-colors duration-300" onClick={handleclick}>
-                Get Started
-              </button>
-            </div>
-            <CardContainer className="inter-var h-full">
-                <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] h-auto w-full rounded-xl p-6 border">
-                <CardItem translateZ="100" className="w-full flex flex-col items-center justify-center">
-                <Image 
-                  src='/images/hero.png' 
-                  alt="Hero Image" 
-                  width="1000" // adjust width as needed
-                  height="1000" // adjust height as needed
-                  className="object-cover" // Add additional styles if needed
-                  />
-              </CardItem>
-              </CardBody>
-              </CardContainer>
-          </div>
-        </section>
-      )
+const HeroSection = () => (
+  <section className="h-[80vh] flex items-center justify-center bg-black text-white">
+    <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div className="md:w-1/2 mb-8 md:mb-0">
+        <h1 className="text-7xl font-bold mb-4">
+          <span className="text-[#75fba6]">Bin</span> it right,
+          <br />
+        </h1>
+        <h1 className="text-5xl font-bold mb-4">Trash out of sight!</h1>
+        {/* <p className="text-xl mb-6">Revolutionizing waste management with smart tracking and analytics.</p> */}
+        <p className="text-xl mb-6">Privatize the pickup of your waste</p>
+        <button
+          className="bg-[#75fba6] text-black px-6 py-3 rounded-full font-bold hover:bg-[#fade77] transition-colors duration-300"
+          onClick={handleclick}
+        >
+          Get Started
+        </button>
+      </div>
+      <CardContainer className="inter-var h-full">
+        <CardBody className="bg-black relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] h-auto w-full rounded-xl p-6 border">
+          <CardItem
+            translateZ="100"
+            className="w-full flex flex-col items-center justify-center"
+          >
+            <Image
+              src="/images/hero.png"
+              alt="Hero Image"
+              width="1000" // adjust width as needed
+              height="1000" // adjust height as needed
+              className="object-cover" // Add additional styles if needed
+            />
+          </CardItem>
+        </CardBody>
+      </CardContainer>
+    </div>
+  </section>
+);
+
 
       
   return (

@@ -170,7 +170,8 @@ export default function LitterLogsTable() {
                   <SkeletonRow />
                 </>
               ) : (
-                images.map((image, index) => (
+                // Reverse the images array here to show the latest entry first
+                [...images].reverse().map((image, index) => (
                   <TableRow key={index} className="hover:bg-gray-800">
                     <TableCell className="w-1/4">
                       <div className="flex items-center">
