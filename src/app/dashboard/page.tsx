@@ -111,6 +111,8 @@ export default function Dashboard() {
     // Replace with your actual user ID
     setIsActionEnabled((prev) => !prev);
       console.log(user.email);
+    console.log(isActionEnabled);
+    if(!isActionEnabled){
     try {
       const response = await fetch(`${devUrl}/bins/create-bin`, {
         method: 'POST',
@@ -132,7 +134,28 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Error making the request:', error);
     }
-  };
+  }else{
+    try {
+      const response = await fetch(`${devUrl}/bins/delete-bin`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user.email,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error making the request:', error);
+    }
+  }};
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -146,9 +169,9 @@ export default function Dashboard() {
           <Button variant="ghost" size="icon">
             <Bell className="h-6 w-6" />
           </Button>
-          <Button variant="ghost" size="icon">
+          {/* <Button variant="ghost" size="icon">
             <Settings className="h-6 w-6" />
-          </Button>
+          </Button> */}
           <HoverCard>
             <HoverCardTrigger asChild>
               <Button variant="ghost" className="flex items-center space-x-2 hover:text-black">
